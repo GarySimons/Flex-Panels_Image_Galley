@@ -123,11 +123,18 @@
   <script>
     const panels = document.querySelectorAll('.panel'); /* grab all the panels */
 
-    function toggleOpen() {
-        this.classList.toggle('open');
+     function toggleOpen() {
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
     }
 
     panels.forEach(panel => panel.addEventListener('click', toggleOpen)); /* listener event for click. When click happens go find toggleOPen */
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive)); /* listener event for transition end */
 
   </script>
 
